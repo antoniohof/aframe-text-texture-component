@@ -7,7 +7,7 @@ A text texture component for [A-Frame](https://aframe.io) that wraps
 [Example](https://antoniohof.github.io/aframe-text-texture-component/example/)
 
 
-### Usaeg
+### Usage
 
 ```html
 <head>
