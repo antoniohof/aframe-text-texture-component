@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/antoniohof/aframe-text-texture-component/issues"
   },
-  "homepage": "https://github.com/antoniohof/aframe-text-texture#readme",
+  "homepage": "https://github.com/antoniohof/aframe-text-texture-component#readme",
   "devDependencies": {
     "webpack": "^1.12.9"
   }
