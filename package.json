@@ -1,0 +1,30 @@
+{
+  "name": "aframe-text-texture-component",
+  "version": "0.0.1",
+  "description": "Texture-based text for A-Frame",
+  "main": "index.js",
+  "scripts": {
+    "dist": "webpack src/index.js dist/aframe-text-texture-component.js && webpack -p src/index.js dist/aframe-text-texture-component.min.js",
+    "postpublish": "npm run dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoniohof/aframe-text-texture-component.git"
+  },
+  "keywords": [
+    "aframe",
+    "aframe-component",
+    "aframe-vr",
+    "text",
+    "texture"
+  ],
+  "author": "Antonio Hofmeister <hof.antonio@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antoniohof/aframe-text-texture-component/issues"
+  },
+  "homepage": "https://github.com/antoniohof/aframe-text-texture#readme",
+  "devDependencies": {
+    "webpack": "^1.12.9"
+  }
+}
