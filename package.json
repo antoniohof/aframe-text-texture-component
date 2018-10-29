@@ -2,7 +2,7 @@
   "name": "aframe-text-texture-component",
   "version": "0.0.1",
   "description": "Texture-based text for A-Frame",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dist": "webpack src/index.js dist/aframe-text-texture-component.js && webpack -p src/index.js dist/aframe-text-texture-component.min.js",
     "postpublish": "npm run dist"
