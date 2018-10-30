@@ -1,10 +1,15 @@
 ## aframe-text-texture-component
 
-A text texture component for [A-Frame](https://aframe.io) that wraps
+A text component for [A-Frame](https://aframe.io) that wraps
 [THREE.TextTexture](https://github.com/SeregPie/THREE.TextTexture).
 
+* supports unicode
+* supports outline 
+* supports padding, line height and text align
+* supports transparency
+
 ### Example
-[Example](https://antoniohof.github.io/aframe-text-texture-component/example/)
+[Try it](https://antoniohof.github.io/aframe-text-texture-component/example/)
 
 
 ### Usage
@@ -24,3 +29,75 @@ A text texture component for [A-Frame](https://aframe.io) that wraps
 </body>
 ```
 
+### Parameters
+```javascript
+    autoRedraw: {
+      default: true,
+      type: "boolean"
+    },
+    text: {
+      default: "",
+      type: "string"
+    },
+    textAlign: {
+      default: "center",
+      oneOf: ["center", "left", "right"],
+      type: "string"
+    },
+    textLineHeight: { default: 1 },
+    fontFamily: {
+      default: 'Open Sans',
+      type: "string"
+    },
+    fontSize: {
+      default: 60,
+      min: 1,
+      max: 128,
+      type: "int"
+    },
+    fontWeight: {
+      default: "normal",
+      oneOf: ["normal", "bold"],
+      type: "string"
+    },
+    fontVariant: {
+      default: "normal",
+      oneOf: ["normal", "small-caps"],
+      type: "string"
+    },
+    fontStyle: {
+      default: "normal",
+      oneOf: ["normal", "italic"],
+      type: "string"
+    },
+    padding: {
+      default: 0.25,
+      min: 0,
+      max: 1,
+      type: "number"
+    },
+    fillStyle: {
+      default: "#fff",
+      type: "color"
+    },
+    lineWidth: {
+      default: 0,
+      min: 0,
+      max: 0.5,
+      type: "number"
+    },
+    strokeStyle: {
+      default: "#fff",
+      type: "color"
+    },
+    opacity: {
+      default: "1",
+      min: 0,
+      max: 1,
+      type: "number"
+    },
+    scale: {
+      default: 1,
+      type: "number"
+    }
+```
