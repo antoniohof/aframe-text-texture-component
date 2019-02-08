@@ -2,6 +2,9 @@
 
 A text component for [A-Frame](https://aframe.io) that wraps
 [THREE.TextTexture](https://github.com/SeregPie/THREE.TextTexture).
+Attention: Only compatible with THREE.TextTexture version 18.8.6
+
+```https://unpkg.com/three.texttexture@18.8.6/THREE.TextTexture.js```
 
 * supports unicode
 * supports outline 
@@ -18,7 +21,7 @@ A text component for [A-Frame](https://aframe.io) that wraps
 <head>
   <title>My A-Frame Scene</title>
   <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-  <script src="https://seregpie.github.io/THREE.TextTexture/THREE.TextTexture.js"></script>
+  <script src="https://unpkg.com/three.texttexture@18.8.6/THREE.TextTexture.js"></script>
   <script src="https://antoniohof.github.io/aframe-text-texture-component/dist/aframe-text-texture-component.min.js"></script>
 </head>
 
