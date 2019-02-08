@@ -46,7 +46,7 @@ AFRAME.registerComponent("text-texture", {
       type: "number"
     },
     fillStyle: {
-      default: "#fffff",
+      default: "#fef9ff",
       type: "color"
     },
     lineWidth: {
@@ -56,7 +56,7 @@ AFRAME.registerComponent("text-texture", {
       type: "number"
     },
     strokeStyle: {
-      default: "#fffff",
+      default: "#fef9ff",
       type: "color"
     },
     opacity: {
@@ -96,6 +96,7 @@ AFRAME.registerComponent("text-texture", {
     this.geometry = new THREE.PlaneGeometry(1, 1, 1);
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.el.setObject3D("mesh", this.mesh);
+    this.textTexture.fillStyle = this.data.fillStyle;
   },
   play: function() {},
   update: function(oldData) {
