@@ -46,27 +46,27 @@ AFRAME.registerComponent("text-texture", {
       type: "number"
     },
     fillStyle: {
-      default: "#fff",
+      default: "#fffff",
       type: "color"
     },
     lineWidth: {
-      default: 0,
+      default: 0.0,
       min: 0,
       max: 0.5,
       type: "number"
     },
     strokeStyle: {
-      default: "#fff",
+      default: "#fffff",
       type: "color"
     },
     opacity: {
-      default: "1",
+      default: 1.0,
       min: 0,
       max: 1,
       type: "number"
     },
     scale: {
-      default: 1,
+      default: 1.0,
       type: "number"
     }
   },
