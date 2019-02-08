@@ -95,25 +95,25 @@ AFRAME.registerComponent("text-texture", {
     });
     this.geometry = new THREE.PlaneGeometry(1, 1, 1);
     this.mesh = new THREE.Mesh(this.geometry, this.material);
-    this.el.setObject3D("mesh", this.mesh)
+    this.el.setObject3D("mesh", this.mesh);
   },
   play: function() {},
   update: function(oldData) {
-    this.material.opacity = this.data.opacity
+    this.material.opacity = this.data.opacity;
     if (oldData.text !== this.data.text) {
-      this.textTexture.text = unescape(this.data.text)
-      this.textTexture.fontFamily = this.data.fontFamily
-      this.textTexture.autoRedraw = this.data.autoRedraw
-      this.textTexture.fontStyle = this.data.fontStyle
-      this.textTexture.textAlign = this.data.textAlign
-      this.textTexture.textLineHeight = this.data.textLineHeight
-      this.textTexture.fontWeight = this.data.fontWeight
-      this.textTexture.fontVariant = this.data.fontVariant
-      this.textTexture.fillStyle = this.data.fillStyle
-      this.textTexture.lineWidth = this.data.lineWidth
-      this.textTexture.strokeStyle = this.data.strokeStyle
-      this.textTexture.padding = this.data.padding
-      let numberOfLines = (unescape(this.data.text).match(/\n/g)||[]).length + 1
+      this.textTexture.text = unescape(this.data.text);
+      this.textTexture.fontFamily = this.data.fontFamily;
+      this.textTexture.autoRedraw = this.data.autoRedraw;
+      this.textTexture.fontStyle = this.data.fontStyle;
+      this.textTexture.textAlign = this.data.textAlign;
+      this.textTexture.textLineHeight = this.data.textLineHeight;
+      this.textTexture.fontWeight = this.data.fontWeight;
+      this.textTexture.fontVariant = this.data.fontVariant;
+      this.textTexture.fillStyle = this.data.fillStyle;
+      this.textTexture.lineWidth = this.data.lineWidth;
+      this.textTexture.strokeStyle = this.data.strokeStyle;
+      this.textTexture.padding = this.data.padding;
+      var numberOfLines = (unescape(this.data.text).match(/\n/g)||[]).length + 1;
       this.mesh.scale.set(this.textTexture.imageAspect * this.data.scale * numberOfLines, this.data.scale * numberOfLines, 1 );
     }
   },
@@ -126,9 +126,9 @@ AFRAME.registerComponent("text-texture", {
     return this.textTexture ? this.textTexture.font : '';
   },
   getImageAspect: function () {
-    return this.textTexture ? this.textTexture.imageAspect : 0
+    return this.textTexture ? this.textTexture.imageAspect : 0;
   },
   getSize: function () {
-    return this.geometry ? new THREE.Vector2(this.geometry.parameters.width * this.mesh.scale.x, this.geometry.parameters.height * this.mesh.scale.y) : new THREE.Vector2(0, 0)
+    return this.geometry ? new THREE.Vector2(this.geometry.parameters.width * this.mesh.scale.x, this.geometry.parameters.height * this.mesh.scale.y) : new THREE.Vector2(0, 0);
   }
 });

@@ -59,13 +59,13 @@
 	      oneOf: ["center", "left", "right"],
 	      type: "string"
 	    },
-	    textLineHeight: { default: 1 },
+	    textLineHeight: { default: 1.2 },
 	    fontFamily: {
 	      default: 'Open Sans',
 	      type: "string"
 	    },
 	    fontSize: {
-	      default: 60,
+	      default: 40,
 	      min: 1,
 	      max: 128,
 	      type: "int"
@@ -86,7 +86,7 @@
 	      type: "string"
 	    },
 	    padding: {
-	      default: 0.25,
+	      default: 0.15,
 	      min: 0,
 	      max: 1,
 	      type: "number"
@@ -120,7 +120,7 @@
 	  init: function() {
 	    this.textTexture = new THREE.TextTexture({
 	      autoRedraw: this.data.autoRedraw,
-	      text: decodeURI(this.data.text),
+	      text: unescape(this.data.text),
 	      fontFamily: this.data.fontFamily,
 	      fontSize: this.data.fontSize,
 	      fontStyle: this.data.fontStyle,
@@ -133,48 +133,52 @@
 	      strokeStyle: this.data.strokeStyle,
 	      padding: this.data.padding
 	    });
-
-	    this.material = new THREE.SpriteMaterial({
+	    this.material = new THREE.MeshBasicMaterial({
 	      map: this.textTexture,
-	      color: this.data.fillStyle,
-	      transparent: true
+	      transparent: true,
+	      side: window.THREE.DoubleSide,
+	      flatShading: true
 	    });
-	    this.material.opacity = this.data.opacity
-	    this.sprite = new THREE.Sprite(this.material);
-	    this.sprite.scale.setX(this.textTexture.imageAspect).multiplyScalar(this.data.scale);
-	    this.el.setObject3D("mesh", this.sprite);
+	    this.geometry = new THREE.PlaneGeometry(1, 1, 1);
+	    this.mesh = new THREE.Mesh(this.geometry, this.material);
+	    this.el.setObject3D("mesh", this.mesh);
 	  },
 	  play: function() {},
 	  update: function(oldData) {
-	    this.material.opacity = this.data.opacity
-	    this.textTexture.text = decodeURI(this.data.text)
-	    this.textTexture.fontFamily = this.data.fontFamily
-	    this.textTexture.autoRedraw = this.data.autoRedraw
-	    this.textTexture.fontStyle = this.data.fontStyle
-	    this.textTexture.textAlign = this.data.textAlign
-	    this.textTexture.textLineHeight = this.data.textLineHeight
-	    this.textTexture.fontWeight = this.data.fontWeight
-	    this.textTexture.fontVariant = this.data.fontVariant
-	    this.textTexture.fillStyle = this.data.fillStyle
-	    this.textTexture.lineWidth = this.data.lineWidth
-	    this.textTexture.strokeStyle = this.data.strokeStyle
-	    this.textTexture.padding = this.data.padding
-	    this.sprite.scale.setX(this.textTexture.imageAspect).multiplyScalar(this.data.scale);
-	    this.sprite.scale.setY(this.data.scale)
+	    this.material.opacity = this.data.opacity;
+	    if (oldData.text !== this.data.text) {
+	      this.textTexture.text = unescape(this.data.text);
+	      this.textTexture.fontFamily = this.data.fontFamily;
+	      this.textTexture.autoRedraw = this.data.autoRedraw;
+	      this.textTexture.fontStyle = this.data.fontStyle;
+	      this.textTexture.textAlign = this.data.textAlign;
+	      this.textTexture.textLineHeight = this.data.textLineHeight;
+	      this.textTexture.fontWeight = this.data.fontWeight;
+	      this.textTexture.fontVariant = this.data.fontVariant;
+	      this.textTexture.fillStyle = this.data.fillStyle;
+	      this.textTexture.lineWidth = this.data.lineWidth;
+	      this.textTexture.strokeStyle = this.data.strokeStyle;
+	      this.textTexture.padding = this.data.padding;
+	      var numberOfLines = (unescape(this.data.text).match(/\n/g)||[]).length + 1;
+	      this.mesh.scale.set(this.textTexture.imageAspect * this.data.scale * numberOfLines, this.data.scale * numberOfLines, 1 );
+	    }
+	  },
+	  tick: function () {
 	  },
 	  getTextLines: function () {
-	    return this.textTexture.textLines;
+	    return this.textTexture ? this.textTexture.textLines : '';
 	  },
 	  getFontProperties: function () {
-	    return this.textTexture.font;
+	    return this.textTexture ? this.textTexture.font : '';
 	  },
 	  getImageAspect: function () {
-	    return this.textTexture.imageAspect;
+	    return this.textTexture ? this.textTexture.imageAspect : 0;
 	  },
 	  getSize: function () {
-	    return this.sprite.scale;
+	    return this.geometry ? new THREE.Vector2(this.geometry.parameters.width * this.mesh.scale.x, this.geometry.parameters.height * this.mesh.scale.y) : new THREE.Vector2(0, 0);
 	  }
 	});
+
 
 /***/ })
 /******/ ]);
