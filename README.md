@@ -1,6 +1,6 @@
 ## aframe-text-texture-component
 
-A text component for [A-Frame](https://aframe.io) that wraps
+A light text component for [A-Frame](https://aframe.io) that wraps
 [THREE.TextTexture](https://github.com/SeregPie/THREE.TextTexture).
 Attention: Only compatible with THREE.TextTexture version 18.8.6
 
