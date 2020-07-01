@@ -18,6 +18,7 @@
     "text",
     "texture"
   ],
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "author": "Antonio Hofmeister <hof.antonio@gmail.com>",
   "license": "MIT",
   "bugs": {
