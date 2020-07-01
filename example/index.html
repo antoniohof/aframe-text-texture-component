@@ -5,17 +5,17 @@
     <title>Example</title>
     <meta name="description" content="Text Texture Example — A-Frame">
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-    <script src="https://seregpie.github.io/THREE.TextTexture/THREE.TextTexture.js"></script>
-    <script src="../src/index.js"></script>
+    <script src="https://unpkg.com/three.texttexture@18.8.6/THREE.TextTexture.js"></script>
+    <script src="https://antoniohof.github.io/aframe-text-texture-component/src/index.js"></script>
   </head>
   <body>
-    <a-scene>
+    <a-scene antialias="true">
       <a-assets>
         <img id="lake" src="lake.jpg">
       </a-assets>
 
       <a-sky src="#lake"></a-sky>
-      <a-entity text-texture="text: Texture Based Text with accented characters (á, ã, â...); scale: 1.5" position="0 0 -10"> </a-entity>
+      <a-entity text-texture="text: Texture Based Text with accented characters (á, ã, â...); scale: 1.0; fillStyle: White" position="0 0 -10"> </a-entity>
     </a-scene>
   </body>
 </html>
